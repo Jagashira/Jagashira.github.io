@@ -2,7 +2,7 @@
 slug: 2022-09-05
 title: First English Diary
 authors: [Jagashira]
-tags: [Windows,Ubuntu,setup]
+tags: []
 ---
 
 
