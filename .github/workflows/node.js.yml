@@ -7,7 +7,7 @@ on:
   push:
     branches: ["developing"]
   pull_request:
-    branches: ["developing"]
+    branches: ["main"]
 
 jobs:
   build:
