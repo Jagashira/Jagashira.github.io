@@ -4,13 +4,12 @@ import Layout from '@theme/Layout';
 import Profile from "../components/Profile"
 
 export default function Home(): JSX.Element {
-  const {} = useDocusaurusContext();
+  const { } = useDocusaurusContext();
   return (
     <Layout>
       <main>
-        <Profile/>
+        <Profile />
       </main>
     </Layout>
   );
 }
-

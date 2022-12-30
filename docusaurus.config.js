@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site",
+  title: "Jagashira",
   tagline: "Dinosaurs are cool",
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/",
@@ -57,9 +57,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "My Site",
+        title: "Jagashira",
         logo: {
-          alt: "My Site Logo",
+          alt: "Jagashira Logo",
           src: "img/logo.svg",
         },
         items: [
@@ -73,7 +73,7 @@ const config = {
 
           // {to: '/diary', label: 'English Diary', position: 'left'},
           {
-            href: "https://github.com/facebook/docusaurus",
+            href: "https://github.com/jagashira",
             label: "GitHub",
             position: "right",
           },
@@ -85,26 +85,26 @@ const config = {
           {
             title: "Docs",
             items: [
-              {
-                label: "Tutorial",
-                to: "/docs/intro",
-              },
+              // {
+              //   label: "Tutorial",
+              //   to: "/docs/intro",
+              // },
             ],
           },
           {
             title: "Community",
             items: [
-              {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
+              // {
+              //   label: "Stack Overflow",
+              //   href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              // },
+              // {
+              //   label: "Discord",
+              //   href: "https://discordapp.com/invite/docusaurus",
+              // },
               {
                 label: "Twitter",
-                href: "https://twitter.com/docusaurus",
+                href: "https://twitter.com/",
               },
             ],
           },
@@ -121,12 +121,12 @@ const config = {
               // },
               {
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                href: "https://github.com/jagashira",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Egashira Satoshi.`,
       },
       prism: {
         theme: lightCodeTheme,
