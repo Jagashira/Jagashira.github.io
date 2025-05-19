@@ -23,11 +23,10 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8
-
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build (with static export)
+      - name: Build (static export)
         run: pnpm build
 
       - name: Deploy to GitHub Pages
