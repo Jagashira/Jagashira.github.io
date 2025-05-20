@@ -1,12 +1,14 @@
+// data/projects.ts
 export interface Project {
   id: string;
   title: string;
   image: string;
   tech: string[];
   desc: string;
-  demo?: string; // 任意
-  repo?: string; // 任意 ← ここを optional に
+  demo?: string;
+  repo?: string;
 }
+
 export const projects: Project[] = [
   {
     id: "gas-line",
@@ -39,9 +41,16 @@ export const projects: Project[] = [
   {
     id: "piano-club",
     title: "東京理科大学ピアノの会",
-    image: "https://tus-piano.vercel.app/img/icon.png", // リモート画像
+    image: "https://tus-piano.vercel.app/img/icon.png",
     tech: ["Next.js", "Tailwind CSS", "microCMS", "Vercel"],
     desc: "サークルの紹介、定期演奏会情報を掲載。コンテンツは microCMS で一元管理し、Vercel にデプロイしたレスポンシブ公式サイト。",
     demo: "https://tus-piano.vercel.app/",
+  },
+  {
+    id: "remotion-shorts",
+    title: "Remotion YouTube Shorts 自動生成",
+    image: "/projects/remotion-shorts.jpg", // 例：/public/projects/ に配置
+    tech: ["Remotion", "FFmpeg", "Whisper", "ChatGPT", "Next.js"],
+    desc: "海外の化粧品系 YouTuber の長尺動画を自動で切り出し、縦型 60 秒以内の Shorts に再構成。Whisper で音声文字起こし→ChatGPT 翻訳→Remotion で字幕付き動画をレンダリングし S3 へ書き出す。",
   },
 ];
