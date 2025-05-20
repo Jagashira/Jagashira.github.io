@@ -32,7 +32,7 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => (
       transition={{ delay: 0.6 }}
     >
       <Link
-        href="#about"
+        href="/about"
         className="bg-gray-900 text-white px-6 py-2 rounded-full hover:bg-gray-700 transition"
       >
         私について

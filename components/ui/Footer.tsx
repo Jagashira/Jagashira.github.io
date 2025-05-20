@@ -10,7 +10,7 @@ export default function Footer() {
         >
           GitHub
         </a>
-        <a href="mailto:example@example.com">Email</a>
+        <a href="mailto:pyprogjas.3104@gmail.com">Email</a>
       </div>
       <div className="mt-2">&copy; 2025 江頭慧</div>
     </footer>

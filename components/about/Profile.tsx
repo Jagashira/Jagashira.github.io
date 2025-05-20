@@ -43,7 +43,7 @@ const AboutProfile = () => (
             GitHub
           </a>
           <a
-            href="mailto:mail@example.com"
+            href="mailto:pyprogjas.3104@gmail.com"
             className="underline text-blue-600 dark:text-blue-400"
           >
             Email
