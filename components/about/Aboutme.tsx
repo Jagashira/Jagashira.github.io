@@ -1,16 +1,18 @@
 import React from "react";
 
-const Aboutme = () => {
+const AboutMe = () => {
   return (
-    <>
-      <section className="bg-gray-900 text-white text-center py-20">
-        <h1 className="text-4xl md:text-5xl font-bold">About Me</h1>
-        <p className="mt-4 text-gray-300">
-          ロボット × Web で未来をつなぐエンジニア
-        </p>
-      </section>
-    </>
+    <section
+      className="py-20 text-center
+                        bg-white dark:bg-gray-900
+                        text-gray-900 dark:text-white"
+    >
+      <h1 className="text-4xl md:text-5xl font-bold">About&nbsp;Me</h1>
+      <p className="mt-4 text-gray-600 dark:text-gray-300">
+        ロボット × Web で未来をつなぐエンジニア
+      </p>
+    </section>
   );
 };
 
-export default Aboutme;
+export default AboutMe;
