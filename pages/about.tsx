@@ -12,7 +12,7 @@ export default function About() {
       <Aboutme />
       <AboutProfile />
       <Slills />
-      <TimeLine />
+      {/* <TimeLine /> */}
       <Vision />
       <CTA />
     </Layout>
