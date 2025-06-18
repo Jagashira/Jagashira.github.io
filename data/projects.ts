@@ -7,6 +7,7 @@ export interface Project {
   desc: string;
   demo?: string;
   repo?: string;
+  link?: string;
 }
 
 export const projects: Project[] = [
@@ -21,14 +22,14 @@ export const projects: Project[] = [
     id: "minutes-app",
     title: "議事録アプリ",
     image: "/projects/minutes.jpg",
-    tech: ["Next.js", "Whisper", "GPT"],
+    tech: ["Next.js", "Whisper", "ChatGPT"],
     desc: "最長 1.5 時間の音声を文字起こしし、ChatGPT で要約まで行う講義・会議向けアプリ。",
   },
   {
     id: "kakeibo",
     title: "家計簿アプリ",
     image: "/projects/kakeibo.jpg",
-    tech: ["Next.js", "Firebase"],
+    tech: ["Next.js", "Firebase", "ChatGPT"],
     desc: "毎日の収支をスマホで手軽に記録・可視化するシンプル家計簿アプリ。",
   },
   {
@@ -52,5 +53,23 @@ export const projects: Project[] = [
     image: "/projects/remotion-shorts.jpg", // 例：/public/projects/ に配置
     tech: ["Remotion", "FFmpeg", "Whisper", "ChatGPT", "Next.js"],
     desc: "海外の化粧品系 YouTuber の長尺動画を自動で切り出し、縦型 60 秒以内の Shorts に再構成。Whisper で音声文字起こし→ChatGPT 翻訳→Remotion で字幕付き動画をレンダリングし S3 へ書き出す。",
+  },
+  //流体の研究室でYsp-201に対してserial通信を行うためのアプリをpythonで自作して自動化した
+  {
+    id: "ysp-201-serial",
+    title: "YSP-201 Serial Communication App",
+    image: "/projects/YSP-201.jpg",
+    tech: ["Python", "Serial Communication"],
+    desc: "流体研究室で YSP-201 に対してシリアル通信を行うための Python アプリ。自動化によりデータ取得を効率化。",
+    repo: "https://github.com/Jagashira/Syringe-Pump-Pro",
+  },
+  //syringe pump proというソフトで使用している独自の言語に対してSyntax highlighting and snippets for Pump Programming Language (PPL) used in syringe pumps.
+  {
+    id: "ppl-syntax-highlighting",
+    title: "Pump Programming Language",
+    image: "/projects/SyringePump.png",
+    tech: ["VSCode", "Syntax Highlighting", "Snippets"],
+    desc: "シリンジポンプで使用される独自の言語 PPL のための VSCode 拡張機能。構文ハイライトとスニペットを提供し、プログラミングを効率化。",
+    link: "https://marketplace.visualstudio.com/items?itemName=Jagashira.vscode-ppl",
   },
 ];

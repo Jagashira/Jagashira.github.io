@@ -70,6 +70,15 @@ export default function Projects() {
                       GitHub →
                     </a>
                   )}
+                  {p.link && (
+                    <a
+                      href={p.link}
+                      target="_blank"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Link →
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
