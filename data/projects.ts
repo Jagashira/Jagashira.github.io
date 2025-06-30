@@ -40,6 +40,22 @@ export const projects: Project[] = [
     desc: "英単語を入力するだけで、意味・音声・関連画像付きカードを Anki に自動登録。",
   },
   {
+    id: "quick-anki",
+    title: "Quick Anki",
+    image: "/projects/QuickAnki.png",
+    tech: [
+      "Chrome Extension",
+      "React",
+      "TypeScript",
+      "Vite",
+      "Next.js",
+      "ChatGPT",
+    ],
+    desc: "Webページ上の単語を右クリックするだけで、AIが意味・発音・例文・音声・画像を自動生成し、Ankiにリッチなカードとして登録するChrome拡張機能。",
+    repo: "https://github.com/Jagashira/Quick-Anki",
+    // link: "https://chrome.google.com/webstore/detail/your-extension-id" // 公開後に有効化
+  },
+  {
     id: "piano-club",
     title: "東京理科大学ピアノの会",
     image: "https://tus-piano.vercel.app/img/icon.png",
