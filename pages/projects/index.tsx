@@ -3,10 +3,15 @@ import Image from "next/image";
 import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
 
 export default function Projects() {
   return (
     <Layout>
+      <NextSeo
+        title="Projects| Jagashira's Portfolio"
+        description="江頭慧が開発した制作物についてのページです。"
+      />
       <section className="bg-gray-900 text-white text-center py-20">
         <h1 className="text-4xl md:text-5xl font-bold">Projects</h1>
         <p className="mt-4 text-gray-300">個人開発で作った作品をピックアップ</p>

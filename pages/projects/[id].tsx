@@ -7,6 +7,7 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { NextSeo } from "next-seo";
 
 type ProjectData = Project & {
   contentHtml: string;
@@ -29,6 +30,22 @@ export default function ProjectDetail({ projectData }: ProjectDetailProps) {
 
   return (
     <Layout>
+      <NextSeo
+        title={`${projectData.title} | Jagashira's Portfolio`}
+        description={projectData.desc}
+        openGraph={{
+          title: `${projectData.title} | Jagashira's Portfolio`,
+          description: projectData.desc,
+          images: [
+            {
+              url: `https://jagashira.github.io/projects/${projectData.image}`,
+              width: 1200,
+              height: 720,
+              alt: projectData.title,
+            },
+          ],
+        }}
+      />
       <article className="py-16 px-6 max-w-6xl mx-auto mt-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
           <div className="mb-8 lg:mb-0 lg:sticky lg:top-24 self-start">
