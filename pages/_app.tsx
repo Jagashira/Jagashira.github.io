@@ -13,7 +13,7 @@ const DEFAULT_SEO = {
     site_name: "Jagashira's Portfolio",
     images: [
       {
-        url: "https://jagashira.github.io/default-og-image.png", // デフォルトのOGP画像
+        url: "https://jagashira.github.io/default-og-image.png",
         width: 1200,
         height: 630,
         alt: "Jagashira's Portfolio",
