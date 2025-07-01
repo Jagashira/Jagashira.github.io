@@ -18,8 +18,8 @@ export default function About() {
       <AboutProfile />
       <Slills />
       {/* <TimeLine /> */}
-      <Vision />
-      <CTA />
+      {/* <Vision /> */}
+      {/* <CTA /> */}
     </Layout>
   );
 }
