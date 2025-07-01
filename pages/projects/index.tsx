@@ -12,9 +12,41 @@ export default function Projects() {
         title="Projects| Jagashira's Portfolio"
         description="江頭慧が開発した制作物についてのページです。"
       />
-      <section className="bg-gray-900 text-white text-center py-20">
-        <h1 className="text-4xl md:text-5xl font-bold">Projects</h1>
-        <p className="mt-4 text-gray-300">個人開発で作った作品をピックアップ</p>
+      <section className="py-24 sm:py-32 bg-white dark:bg-gray-950">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-center gap-x-16 gap-y-16 lg:grid-cols-2">
+            {/* 左カラム：テキスト */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+            >
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+                Projects
+              </h1>
+              <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+                独学と探求心で形にしてきた、個人開発の制作物一覧です。Webアプリケーションからハードウェア制御、AI連携まで、幅広い分野での挑戦をご覧ください。
+              </p>
+            </motion.div>
+
+            {/* 右カラム：画像 */}
+            <motion.div
+              className="flex justify-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+            >
+              <Image
+                src="/me/flat-lay.png"
+                alt="Emblem of Satoshi Egashira's Skills"
+                width={500}
+                height={281}
+                className="rounded-xl shadow-2xl"
+                priority
+              />
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       <section className="py-16 px-6 max-w-6xl mx-auto">
