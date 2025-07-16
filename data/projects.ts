@@ -56,9 +56,9 @@ export const projects: Project[] = [
   {
     id: "piano-club",
     title: "東京理科大学ピアノの会",
-    image: "https://tus-piano.vercel.app/img/icon.png",
+    image: "https://tus-piano.vercel.app/img/og-image.jpg",
     tech: ["Next.js", "Tailwind CSS", "microCMS", "Rive"],
-    desc: "ヘッドレスCMS「microCMS」を導入し、サークル員自身が更新できる公式サイト。",
+    desc: "静的サイト生成(SSG/ISR)による高速な公開サイトと、管理者のみがアクセスできる多機能なダッシュボードを両立させた公式サイト。",
     link: "https://tus-piano.vercel.app/",
   },
   {
