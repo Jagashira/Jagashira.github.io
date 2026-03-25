@@ -120,13 +120,25 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     .process(content);
   const html = processed.toString();
 
-  const frontmatter: NoteFrontmatter = {
-    title: data.title ?? undefined,
-    description: data.description ?? undefined,
-    tags: Array.isArray(data.tags) ? data.tags : undefined,
-    updated: data.updated ?? undefined,
-    ogImage: data.ogImage ?? undefined,
-  };
+  const frontmatter: NoteFrontmatter = {};
+
+  if (typeof data.title === "string") {
+    frontmatter.title = data.title;
+  }
+  if (typeof data.description === "string") {
+    frontmatter.description = data.description;
+  }
+  if (Array.isArray(data.tags)) {
+    frontmatter.tags = data.tags.filter(
+      (tag): tag is string => typeof tag === "string"
+    );
+  }
+  if (typeof data.updated === "string") {
+    frontmatter.updated = data.updated;
+  }
+  if (typeof data.ogImage === "string") {
+    frontmatter.ogImage = data.ogImage;
+  }
 
   return {
     props: {
