@@ -1,6 +1,6 @@
 import Layout from "@components/ui/Layout";
 import Image from "next/image";
-import { projects } from "@/data/projects";
+import { projects } from "@/data/projects/projects";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
@@ -12,7 +12,7 @@ export default function Projects() {
         title="Projects| Jagashira's Portfolio"
         description="江頭慧が開発した制作物についてのページです。"
       />
-      <section className="py-24 sm:py-32 bg-white dark:bg-gray-950">
+      <section className="bg-white py-24 dark:bg-slate-900 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-x-16 gap-y-16 lg:grid-cols-2">
             {/* 左カラム：テキスト */}
@@ -37,11 +37,11 @@ export default function Projects() {
               transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
             >
               <Image
-                src="/me/flat-lay.png"
+                src="/me/projects.png"
                 alt="Emblem of Satoshi Egashira's Skills"
                 width={500}
                 height={281}
-                className="rounded-xl shadow-2xl"
+                className="h-auto rounded-xl shadow-2xl"
                 priority
               />
             </motion.div>
@@ -54,7 +54,7 @@ export default function Projects() {
           {projects.map((p) => (
             <Link key={p.id} href={`/projects/${p.id}`} passHref>
               <motion.div
-                className="border rounded-lg shadow hover:shadow-lg transition bg-white flex flex-col h-full cursor-pointer group"
+                className="flex h-full cursor-pointer flex-col rounded-lg border border-gray-200 bg-white shadow transition hover:-translate-y-1 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -69,8 +69,10 @@ export default function Projects() {
                 </div>
 
                 <div className="p-4 flex flex-col flex-grow">
-                  <h2 className="font-semibold text-lg">{p.title}</h2>
-                  <p className="text-sm text-gray-600 mt-1 line-clamp-3 flex-grow">
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                    {p.title}
+                  </h2>
+                  <p className="mt-1 flex-grow line-clamp-3 text-sm text-gray-600 dark:text-gray-300">
                     {p.desc}
                   </p>
 
@@ -78,14 +80,14 @@ export default function Projects() {
                     {p.tech.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 bg-gray-200 rounded-full"
+                        className="rounded-full bg-gray-200 px-2 py-0.5 text-gray-700 dark:bg-gray-800 dark:text-gray-200"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="mt-4 text-sm font-semibold text-blue-600 group-hover:underline">
+                  <div className="mt-4 text-sm font-semibold text-blue-600 group-hover:underline dark:text-blue-400">
                     詳細を見る →
                   </div>
                 </div>
@@ -99,7 +101,8 @@ export default function Projects() {
         <a
           href="https://github.com/jagashira"
           target="_blank"
-          className="inline-block bg-gray-900 text-white px-8 py-3 rounded-full hover:bg-gray-700 transition"
+          rel="noopener noreferrer"
+          className="inline-block rounded-full bg-gray-900 px-8 py-3 text-white hover:bg-gray-700 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-200"
         >
           GitHub で他のリポジトリも見る
         </a>

@@ -22,7 +22,7 @@ const skillCategories = [
 ];
 
 const Skills = () => (
-  <section className="bg-gray-50 py-24 sm:py-32 dark:bg-gray-900">
+  <section className="bg-gray-50 py-24 sm:py-32 dark:bg-slate-800">
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
       <motion.div
         className="mx-auto max-w-2xl lg:text-center"
@@ -53,7 +53,7 @@ const Skills = () => (
           {skillCategories.map((category) => (
             <motion.div
               key={category.title}
-              className="rounded-xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-950 dark:ring-white/10"
+              className="rounded-xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-slate-900 dark:ring-white/10"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },

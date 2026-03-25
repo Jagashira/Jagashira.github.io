@@ -8,7 +8,7 @@ export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   return (
     <Layout heroRef={heroRef}>
-      <div className="min-h-screen bg-white text-gray-900">
+      <div className="min-h-screen bg-white text-gray-900 dark:bg-slate-900 dark:text-gray-100">
         <Hero ref={heroRef} />
         <AboutOutline />
         <ProjectOutline />

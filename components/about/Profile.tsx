@@ -9,7 +9,7 @@ const EMAIL_ICON_PATH =
   "M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z";
 
 const AboutProfile = () => (
-  <section className="bg-white dark:bg-gray-950 py-24 sm:py-32">
+  <section className="bg-white py-24 dark:bg-slate-900 sm:py-32">
     <motion.div
       className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16 items-center"
       initial={{ opacity: 0, y: 30 }}
@@ -38,7 +38,10 @@ const AboutProfile = () => (
           Satoshi Egashira
         </h2>
         <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-          機械工学の物理的な世界と、Web開発のデジタルな世界。この二つを繋ぐことで、今までにない価値を創造できると信じています。現在は、実践的なアプリケーション開発を通じて、アイデアを形にする技術を磨いています。
+          半導体や IoT に代表されるハードウェアの世界と、Webアプリケーションのようなソフトウェアの世界をつなぐ開発に関心があります。単に画面を作るだけでなく、センサーやデバイスの動きまで含めて体験を設計し、実装まで落とし込めることを目標にしています。
+        </p>
+        <p className="mt-4 text-base leading-7 text-gray-500 dark:text-gray-400">
+          個人開発では、制御や自動化、ユーザーが触れるUI/UXまでを一貫して考えながら、現実の課題を解くプロダクトづくりに取り組んでいます。
         </p>
 
         <div className="mt-8 flex items-center justify-center lg:justify-start gap-x-6">

@@ -12,6 +12,23 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "home-assistant",
+    title: "Home Assistant",
+    image: "/projects/home-assistant.png",
+    tech: [
+      "Home Assistant",
+      "Home Assistant OS",
+      "Raspberry Pi 4",
+      "ESPHome",
+      "ESP32",
+      "Sesame 5",
+      "Tailscale",
+      "NAS",
+      "HACS",
+    ],
+    desc: "Home Assistant を中心に、スマートロック、赤外線家電、各種センサーを統合し、ローカル中心で運用できる自宅向けスマートホーム基盤を構築した。",
+  },
+  {
     id: "gas-line",
     title: "GAS × LINE 自動フィードバック",
     image: "/projects/gas-line.jpg",

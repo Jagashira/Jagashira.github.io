@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { projects } from "@/data/projects";
+import { projects } from "@/data/projects/projects";
 
 const ProjectOutline = () => {
   return (
-    <section className="py-20 px-6 bg-gray-50 dark:bg-black">
+    <section className="bg-gray-50 px-6 py-20 dark:bg-slate-800">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-10 text-gray-900 dark:text-white">
           制作物ピックアップ

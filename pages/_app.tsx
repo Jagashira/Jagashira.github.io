@@ -25,7 +25,12 @@ const DEFAULT_SEO = {
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
       <DefaultSeo {...DEFAULT_SEO} />
       <Component {...pageProps} />
     </ThemeProvider>

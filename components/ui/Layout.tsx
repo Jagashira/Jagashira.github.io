@@ -32,7 +32,9 @@ export default function Layout({ heroRef, children }: Props) {
       <AnimatePresence initial={false} mode="wait">
         {showHeader && <Header />} {/* フェードインは Header 側で */}
       </AnimatePresence>
-      <main>{children}</main>
+      <main className="min-h-screen bg-white text-gray-900 dark:bg-slate-900 dark:text-gray-100">
+        {children}
+      </main>
       <Footer />
     </>
   );
