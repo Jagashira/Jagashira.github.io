@@ -4,8 +4,25 @@ import { projects } from "@/data/projects/projects";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
+import fs from "fs";
+import path from "path";
 
-export default function Projects() {
+type ProjectsProps = {
+  contributionMeta: {
+    total: number | null;
+    updatedAt: string | null;
+  };
+};
+
+const contributionLegendColors = [
+  "#ebedf0",
+  "#9be9a8",
+  "#40c463",
+  "#30a14e",
+  "#216e39",
+];
+
+export default function Projects({ contributionMeta }: ProjectsProps) {
   return (
     <Layout>
       <NextSeo
@@ -36,14 +53,55 @@ export default function Projects() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
             >
-              <Image
-                src="/me/projects.png"
-                alt="Emblem of Satoshi Egashira's Skills"
-                width={500}
-                height={281}
-                className="h-auto rounded-xl shadow-2xl"
-                priority
-              />
+              <div className="w-full max-w-3xl rounded-[2rem] border border-slate-200 bg-white p-4 shadow-[0_24px_60px_-24px_rgba(15,23,42,0.35)] dark:border-slate-800 dark:bg-slate-900">
+                <div className="mb-4 flex items-start justify-between gap-4 px-2">
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
+                      GitHub Activity
+                    </p>
+                    <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-600 dark:text-slate-300">
+                      <p className="text-base font-semibold text-slate-900 dark:text-white">
+                        {contributionMeta.total !== null
+                          ? `${contributionMeta.total} contributions in the last year`
+                          : "Contribution chart"}
+                      </p>
+                      <p>Private contributions included</p>
+                      {contributionMeta.updatedAt && <p>Updated {contributionMeta.updatedAt}</p>}
+                    </div>
+                  </div>
+                  <a
+                    href="https://github.com/Jagashira"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-slate-200 px-5 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                  >
+                    View Profile
+                  </a>
+                </div>
+                <div className="relative h-[180px] overflow-hidden rounded-2xl border border-slate-100 bg-slate-50/60 dark:border-slate-800 dark:bg-slate-950/40">
+                  <Image
+                    src="/github/contributions.svg"
+                    alt="GitHub contribution activity chart"
+                    width={1080}
+                    height={180}
+                    className="absolute right-0 top-0 h-full w-auto max-w-none"
+                    priority
+                  />
+                </div>
+                <div className="mt-3 flex items-center justify-end gap-2 px-2 text-sm text-slate-500 dark:text-slate-400">
+                  <span>Less</span>
+                  <div className="flex items-center gap-1">
+                    {contributionLegendColors.map((color) => (
+                      <span
+                        key={color}
+                        className="h-3.5 w-3.5 rounded-[4px] border border-white/70 dark:border-slate-900/60"
+                        style={{ backgroundColor: color }}
+                      />
+                    ))}
+                  </div>
+                  <span>More</span>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -109,4 +167,40 @@ export default function Projects() {
       </section>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const svgPath = path.join(
+    process.cwd(),
+    "public",
+    "github",
+    "contributions.svg",
+  );
+
+  let contributionMeta = {
+    total: null as number | null,
+    updatedAt: null as string | null,
+  };
+
+  try {
+    const svg = fs.readFileSync(svgPath, "utf8");
+    const totalMatch = svg.match(/<title[^>]*>(\d+) GitHub contributions in the last year<\/title>/);
+    const updatedMatch = svg.match(/updated (\d{4}-\d{2}-\d{2})/i);
+
+    contributionMeta = {
+      total: totalMatch ? Number(totalMatch[1]) : null,
+      updatedAt: updatedMatch ? updatedMatch[1] : null,
+    };
+  } catch {
+    contributionMeta = {
+      total: null,
+      updatedAt: null,
+    };
+  }
+
+  return {
+    props: {
+      contributionMeta,
+    },
+  };
 }
