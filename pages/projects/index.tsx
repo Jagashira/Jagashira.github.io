@@ -11,6 +11,7 @@ type ProjectsProps = {
   contributionMeta: {
     total: number | null;
     updatedAt: string | null;
+    includesPrivate: boolean;
   };
 };
 
@@ -65,7 +66,11 @@ export default function Projects({ contributionMeta }: ProjectsProps) {
                           ? `${contributionMeta.total} contributions in the last year`
                           : "Contribution chart"}
                       </p>
-                      <p>Private contributions included</p>
+                      <p>
+                        {contributionMeta.includesPrivate
+                          ? "Private contributions included"
+                          : "Public contributions only"}
+                      </p>
                       {contributionMeta.updatedAt && <p>Updated {contributionMeta.updatedAt}</p>}
                     </div>
                   </div>
@@ -180,21 +185,25 @@ export async function getStaticProps() {
   let contributionMeta = {
     total: null as number | null,
     updatedAt: null as string | null,
+    includesPrivate: false,
   };
 
   try {
     const svg = fs.readFileSync(svgPath, "utf8");
     const totalMatch = svg.match(/<title[^>]*>(\d+) GitHub contributions in the last year<\/title>/);
     const updatedMatch = svg.match(/updated (\d{4}-\d{2}-\d{2})/i);
+    const privateMatch = svg.match(/chart for [^<]*private activity/i);
 
     contributionMeta = {
       total: totalMatch ? Number(totalMatch[1]) : null,
       updatedAt: updatedMatch ? updatedMatch[1] : null,
+      includesPrivate: Boolean(privateMatch),
     };
   } catch {
     contributionMeta = {
       total: null,
       updatedAt: null,
+      includesPrivate: false,
     };
   }
 

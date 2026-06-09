@@ -62,6 +62,21 @@ async function ensureOutputDir() {
   await fs.mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
 }
 
+function levelFromPublicGraph(level) {
+  switch (String(level)) {
+    case "1":
+      return "FIRST_QUARTILE";
+    case "2":
+      return "SECOND_QUARTILE";
+    case "3":
+      return "THIRD_QUARTILE";
+    case "4":
+      return "FOURTH_QUARTILE";
+    default:
+      return "NONE";
+  }
+}
+
 function escapeHtml(value) {
   return value
     .replaceAll("&", "&amp;")
@@ -220,6 +235,64 @@ async function fetchContributionCalendar(username, token) {
   };
 }
 
+async function fetchPublicContributionCalendar(username) {
+  const response = await fetch(`https://github.com/users/${username}/contributions`, {
+    headers: {
+      "User-Agent": "Jagashira.github.io contribution generator",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`GitHub public contributions request failed with ${response.status}`);
+  }
+
+  const svg = await response.text();
+  const rectMatches = [...svg.matchAll(
+    /<rect\b[^>]*data-date="([^"]+)"[^>]*data-count="(\d+)"[^>]*data-level="(\d+)"[^>]*>/g,
+  )];
+
+  if (!rectMatches.length) {
+    throw new Error("Public contribution graph not found in GitHub response.");
+  }
+
+  const contributionDays = rectMatches
+    .map(([, date, count, level]) => ({
+      date,
+      contributionCount: Number(count),
+      contributionLevel: levelFromPublicGraph(level),
+      weekday: new Date(`${date}T00:00:00Z`).getUTCDay(),
+    }))
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  const weeks = [];
+  for (let i = 0; i < contributionDays.length; i += 7) {
+    weeks.push({
+      contributionDays: contributionDays.slice(i, i + 7),
+    });
+  }
+
+  const months = [];
+  const seenMonths = new Set();
+  weeks.forEach((week, weekIndex) => {
+    week.contributionDays.forEach((day) => {
+      const monthKey = day.date.slice(0, 7);
+      if (day.date.endsWith("-01") && !seenMonths.has(monthKey)) {
+        seenMonths.add(monthKey);
+        months.push({
+          firstDay: day.date,
+          weekIndex,
+        });
+      }
+    });
+  });
+
+  return {
+    totalContributions: contributionDays.reduce((sum, day) => sum + day.contributionCount, 0),
+    weeks,
+    months,
+  };
+}
+
 async function main() {
   await loadEnvFile(".env.local");
   await loadEnvFile(".env");
@@ -227,20 +300,31 @@ async function main() {
 
   const USERNAME = process.env.GITHUB_CONTRIBUTIONS_USER || "Jagashira";
   const TOKEN = process.env.GH_CONTRIBUTIONS_TOKEN;
+  let calendar;
+  let sourceLabel;
 
-  if (!TOKEN) {
-    await fs.writeFile(OUTPUT_PATH, buildPlaceholderSvg(USERNAME), "utf8");
-    console.log(`Generated placeholder contributions SVG at ${OUTPUT_PATH}`);
-    return;
+  if (TOKEN) {
+    try {
+      calendar = await fetchContributionCalendar(USERNAME, TOKEN);
+      sourceLabel = `@${USERNAME} private activity`;
+    } catch (error) {
+      console.warn(
+        `Failed to fetch private contribution calendar, falling back to public data: ${error.message}`,
+      );
+    }
   }
 
-  const calendar = await fetchContributionCalendar(USERNAME, TOKEN);
+  if (!calendar) {
+    calendar = await fetchPublicContributionCalendar(USERNAME);
+    sourceLabel = `@${USERNAME} public activity`;
+  }
+
   const generatedAt = new Date().toISOString().slice(0, 10);
 
   const svg = buildSvg({
     ...calendar,
     generatedAt,
-    sourceLabel: `@${USERNAME} private activity`,
+    sourceLabel,
   });
 
   await fs.writeFile(OUTPUT_PATH, svg, "utf8");
