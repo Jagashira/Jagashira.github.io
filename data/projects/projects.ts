@@ -48,6 +48,19 @@ export const projects: Project[] = [
     desc: "音声を文字起こしし、AIが要約まで行う議事録作成サポートアプリ",
   },
   {
+    id: "minute-dock",
+    title: "MinuteDock",
+    image: "/projects/minutes.png",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "OpenAI",
+      "Whisper",
+      "Audio Transcription",
+    ],
+    desc: "MeetNote として構想した議事録支援プロダクトを発展させ、録音・文字起こし・要約を一連で扱える会議メモ基盤として再設計した MinuteDock。",
+  },
+  {
     id: "kakei-plus",
     title: "Kakei Plus",
     image: "/projects/kakei-plus.jpg",
