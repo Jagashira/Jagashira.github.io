@@ -41,13 +41,6 @@ export const projects: Project[] = [
     desc: "Google Form の回答から個別 PDF を生成し、公式 LINE へ自動返信するシステム",
   },
   {
-    id: "oto-log",
-    title: "Oto-Log",
-    image: "/projects/minutes.jpg",
-    tech: ["Next.js", "Whisper", "ChatGPT", "Firebase"],
-    desc: "音声を文字起こしし、AIが要約まで行う議事録作成サポートアプリ",
-  },
-  {
     id: "minute-dock",
     title: "MinuteDock",
     image: "/projects/minutes.png",
@@ -58,7 +51,14 @@ export const projects: Project[] = [
       "Whisper",
       "Audio Transcription",
     ],
-    desc: "MeetNote として構想した議事録支援プロダクトを発展させ、録音・文字起こし・要約を一連で扱える会議メモ基盤として再設計した MinuteDock。",
+    desc: "Oto-Log として構想した議事録支援プロダクトを発展させ、録音・文字起こし・要約を一連で扱える会議メモ基盤として再設計した MinuteDock。",
+  },
+  {
+    id: "oto-log",
+    title: "Oto-Log",
+    image: "/projects/minutes.jpg",
+    tech: ["Next.js", "Whisper", "ChatGPT", "Firebase"],
+    desc: "音声を文字起こしし、AIが要約まで行う議事録作成サポートアプリ",
   },
   {
     id: "kakei-plus",
