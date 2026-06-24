@@ -1,0 +1,32 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="48" fill="#F4F8FF"/>
+  <rect x="56" y="56" width="1088" height="608" rx="40" fill="url(#bg)"/>
+  <rect x="114" y="126" width="388" height="468" rx="28" fill="#FFFFFF" stroke="#D9E7FF" stroke-width="4"/>
+  <rect x="154" y="176" width="308" height="54" rx="16" fill="#EEF4FF"/>
+  <rect x="154" y="254" width="308" height="18" rx="9" fill="#D9E7FF"/>
+  <rect x="154" y="290" width="268" height="18" rx="9" fill="#D9E7FF"/>
+  <rect x="154" y="326" width="292" height="18" rx="9" fill="#D9E7FF"/>
+  <rect x="154" y="392" width="308" height="142" rx="22" fill="#F7FAFF" stroke="#E0ECFF" stroke-width="4"/>
+  <path d="M268 196H347" stroke="#2459C6" stroke-width="10" stroke-linecap="round"/>
+  <path d="M604 208C604 185.909 621.909 168 644 168H964C986.091 168 1004 185.909 1004 208V478C1004 500.091 986.091 518 964 518H644C621.909 518 604 500.091 604 478V208Z" fill="#FFFFFF" stroke="#D9E7FF" stroke-width="4"/>
+  <rect x="650" y="214" width="308" height="108" rx="20" fill="#F6FAFF"/>
+  <rect x="676" y="246" width="104" height="44" rx="12" fill="#E3EEFF"/>
+  <rect x="798" y="246" width="120" height="14" rx="7" fill="#D0E2FF"/>
+  <rect x="798" y="276" width="90" height="14" rx="7" fill="#D0E2FF"/>
+  <path d="M558 342C582.853 342 603 321.853 603 297C603 272.147 582.853 252 558 252C533.147 252 513 272.147 513 297C513 321.853 533.147 342 558 342Z" fill="#2F72FF"/>
+  <path d="M1013 396C1037.85 396 1058 375.853 1058 351C1058 326.147 1037.85 306 1013 306C988.147 306 968 326.147 968 351C968 375.853 988.147 396 1013 396Z" fill="#2F72FF"/>
+  <path d="M595 290L969 346" stroke="#2F72FF" stroke-width="12" stroke-linecap="round" stroke-dasharray="14 20"/>
+  <path d="M945 333L970 346L949 361" stroke="#2F72FF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="650" y="350" width="308" height="112" rx="20" fill="#EEF4FF"/>
+  <rect x="676" y="380" width="246" height="16" rx="8" fill="#C6DAFF"/>
+  <rect x="676" y="412" width="210" height="16" rx="8" fill="#C6DAFF"/>
+  <rect x="676" y="444" width="182" height="16" rx="8" fill="#C6DAFF"/>
+  <text x="114" y="98" fill="#2459C6" font-family="Arial, sans-serif" font-size="28" font-weight="700">ClipBridge</text>
+  <text x="114" y="636" fill="#4E6A96" font-family="Arial, sans-serif" font-size="30" font-weight="600">Cross-device clipboard sync for macOS and Windows</text>
+  <defs>
+    <linearGradient id="bg" x1="56" y1="56" x2="1144" y2="664" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9FBFF"/>
+      <stop offset="1" stop-color="#E7F0FF"/>
+    </linearGradient>
+  </defs>
+</svg>

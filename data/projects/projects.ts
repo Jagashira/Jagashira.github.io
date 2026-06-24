@@ -54,6 +54,21 @@ export const projects: Project[] = [
     desc: "Oto-Log として構想した議事録支援プロダクトを発展させ、録音・文字起こし・要約を一連で扱える会議メモ基盤として再設計した MinuteDock。",
   },
   {
+    id: "clipbridge",
+    title: "ClipBridge",
+    image: "/projects/clipbridge.svg",
+    tech: [
+      "Python",
+      "Typer",
+      "Tkinter",
+      "Google Drive API",
+      "OAuth 2.0",
+      "PyInstaller",
+    ],
+    desc: "macOS と Windows 間で最新のクリップボード内容を同期する、Google Drive ベースのクロスプラットフォーム常駐アプリ。",
+    repo: "https://github.com/Jagashira/clipbridge",
+  },
+  {
     id: "oto-log",
     title: "Oto-Log",
     image: "/projects/minutes.jpg",
