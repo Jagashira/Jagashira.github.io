@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://jagashira.github.io
-
-# Sitemaps
-Sitemap: https://jagashira.github.io/sitemap.xml

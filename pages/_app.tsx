@@ -1,38 +1,17 @@
-// pages/_app.tsx
-import { ThemeProvider } from "next-themes";
 import "@/styles/globals.css";
+import "@/styles/semiconductor.css";
 import type { AppProps } from "next/app";
-import { DefaultSeo } from "next-seo";
+import Head from "next/head";
 
-const DEFAULT_SEO = {
-  title: "Jagashira's Portfolio",
-  description: "江頭慧のポートフォリオサイトです。",
-  openGraph: {
-    type: "website",
-    locale: "ja_JP",
-    url: "https://jagashira.github.io/",
-    site_name: "Jagashira's Portfolio",
-    images: [
-      {
-        url: "https://jagashira.github.io/me/flat-lay.png",
-        width: 1200,
-        height: 630,
-        alt: "Jagashira's Portfolio",
-      },
-    ],
-  },
-};
-
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <DefaultSeo {...DEFAULT_SEO} />
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#fcfcfa" />
+        <link rel="icon" href="/portfolio/mark.svg" type="image/svg+xml" />
+      </Head>
       <Component {...pageProps} />
-    </ThemeProvider>
+    </>
   );
 }

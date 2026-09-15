@@ -1,0 +1,83 @@
+{
+  "checkedAt": "2026-09-14T01:06:52.124Z",
+  "links": [
+    {
+      "url": "https://github.com/Jagashira",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://github.com/Jagashira"
+    },
+    {
+      "url": "https://github.com/Jagashira/clipbridge",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://github.com/Jagashira/clipbridge"
+    },
+    {
+      "url": "https://github.com/Jagashira/home-dashboard.git",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://github.com/Jagashira/home-dashboard"
+    },
+    {
+      "url": "https://github.com/Jagashira/home-platform.git",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://github.com/Jagashira/home-platform"
+    },
+    {
+      "url": "https://github.com/Jagashira/home-internal-api.git",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://github.com/Jagashira/home-internal-api"
+    },
+    {
+      "url": "https://github.com/Jagashira/home-billing-api.git",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://github.com/Jagashira/home-billing-api"
+    },
+    {
+      "url": "https://tus-piano.vercel.app/",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://tus-piano.vercel.app/"
+    },
+    {
+      "url": "https://github.com/Jagashira/vscode-ppl",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://github.com/Jagashira/vscode-ppl"
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=Jagashira.vscode-ppl",
+      "status": 200,
+      "method": "GET",
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=Jagashira.vscode-ppl"
+    },
+    {
+      "url": "https://github.com/Jagashira/Quick-Anki",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://github.com/Jagashira/Quick-Anki"
+    },
+    {
+      "url": "https://jagashira.github.io/video/video.mp4",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://jagashira.github.io/video/video.mp4"
+    },
+    {
+      "url": "https://jagashira.github.io/video/tiktok.mp4",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://jagashira.github.io/video/tiktok.mp4"
+    },
+    {
+      "url": "https://github.com/Jagashira/Syringe-Pump-Pro",
+      "status": 200,
+      "method": "HEAD",
+      "finalUrl": "https://github.com/Jagashira/Syringe-Pump-Pro"
+    }
+  ]
+}
