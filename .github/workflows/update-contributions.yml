@@ -2,8 +2,8 @@ name: Update GitHub Contributions
 
 on:
   schedule:
-    # Every Monday at 00:00 JST (Sunday 15:00 UTC)
-    - cron: "0 15 * * 0"
+    # First day of every month at 09:00 JST (00:00 UTC)
+    - cron: "0 0 1 * *"
   workflow_dispatch:
 
 permissions:
