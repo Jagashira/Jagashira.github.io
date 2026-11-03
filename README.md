@@ -1,40 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Satoshi Egashira — Portfolio
 
-## Getting Started
+半導体研究、IoT、3D Printing、ソフトウェア開発を紹介する、白背景の技術ポートフォリオです。既存の事実情報を使い、UIとアニメーションを新規設計しています。
 
-First, run the development server:
+## Run
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+Node.js 22 / pnpm 9.12.2 を推奨します。
+
+```sh
+pnpm install --frozen-lockfile
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+公開用の静的ファイルを確認する場合：
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```sh
+pnpm build
+pnpm preview
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+`http://127.0.0.1:3001` で `out/` を配信します。`pnpm start` も静的プレビューです。GitHub Pagesへの自動公開は既存のmain向けワークフローにあり、今回のfeatureブランチからは公開されません。
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Quality checks
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+pnpm lint
+pnpm typecheck
+pnpm build
+```
 
-## Learn More
+UI検証は `scripts/verify-portfolio.mjs` を使用します。プロジェクトの実行依存を増やさないため、Playwrightとaxe-coreは検証環境側のものを使っています。利用環境にインストール済みの場合は、そのまま `node scripts/verify-portfolio.mjs` を実行できます。別の場所にある場合は、`PLAYWRIGHT_MODULE` にPlaywrightの `index.mjs`、`AXE_SOURCE` にaxe-coreの `axe.min.js` の絶対パスを指定してください。既定のブラウザーはChromeです。
 
-To learn more about Next.js, take a look at the following resources:
+検証結果は `docs/verification-results.json`、公開リンクの結果は `docs/link-verification.json`、画面は `docs/screenshots/` にあります。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `pages/index.tsx`: Hero / Featured Projects / Research / About / Skills / Experience / Contact
+- `pages/projects/`: カテゴリ絞り込みと12件の静的プロジェクト詳細
+- `pages/about.tsx`: プロフィールとスキル・経歴
+- `pages/cooknote/`: 既存の料理ノートと学習計画
+- `components/portfolio/`: 新しい共通UI、ラテアート、半導体SVG
+- `data/projects/projects.ts`, `data/projects/docs/`: 既存プロジェクトの事実情報
+- `data/portfolio.ts`: プロフィール、表示カテゴリ、掲載順
+- `styles/globals.css`, `styles/semiconductor.css`: 新しいデザインとモーション
 
-## Deploy on Vercel
+## Animation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`LatteSplash.tsx` は自作SVGでコーヒー、ミルクの渦、7対のロゼッタの葉、ハートと茎を順に描画します。3.1秒の演出後、0.38秒でフェードアウト。セッション内の再表示を抑制し、Skip / Escapeで終了できます。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+`SemiconductorScene.tsx` は配線層・デバイス層・基板を等角投影した自作SVGです。スプラッシュ終了後に各層を重ね、回路とエッジに光を走らせ、4.6秒で停止します。Replayで再生できます。
+
+`prefers-reduced-motion: reduce` ではスプラッシュを省略し、半導体を静止した完成状態で表示します。外部アニメーション素材、Canvas、WebGL、Three.jsは使っていません。
+
+詳しい制作・検証記録は [docs/portfolio-report.md](docs/portfolio-report.md) を参照してください。

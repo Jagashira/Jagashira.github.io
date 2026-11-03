@@ -1,0 +1,413 @@
+.semiconductor-scene {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  isolation: isolate;
+}
+
+.semiconductor-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.chip-layer,
+.chip-ground-shadow,
+.chip-assembly-beam,
+.chip-annotations {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.chip-layer--device {
+  transform: translateY(-48px);
+}
+
+.chip-layer--interconnect {
+  transform: translateY(-102px);
+}
+
+.chip-edge-light {
+  opacity: 0;
+  stroke-dasharray: 0.27 0.73;
+  stroke-dashoffset: 1;
+}
+
+.chip-trace-glow path,
+.chip-trace-light path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.chip-trace-glow,
+.chip-trace-light,
+.chip-node-light,
+.chip-assembly-beam,
+.chip-annotations {
+  opacity: 0;
+}
+
+.chip-annotation-text {
+  font-family: var(--font-mono, "SFMono-Regular", Consolas, monospace);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.055em;
+}
+
+.semiconductor-scene[data-active="true"] .chip-layer--substrate {
+  animation: chip-substrate-settle 4.6s both;
+}
+
+.semiconductor-scene[data-active="true"] .chip-layer--device {
+  animation: chip-device-assemble 4.6s both;
+}
+
+.semiconductor-scene[data-active="true"] .chip-layer--interconnect {
+  animation: chip-interconnect-assemble 4.6s both;
+}
+
+.semiconductor-scene[data-active="true"] .chip-ground-shadow {
+  animation: chip-shadow-assemble 4.6s both;
+}
+
+.semiconductor-scene[data-active="true"] .chip-assembly-beam {
+  animation: chip-assembly-beam 4.6s both;
+}
+
+.semiconductor-scene[data-active="true"] .chip-edge-light {
+  animation: chip-edge-travel 4.6s both;
+}
+
+.semiconductor-scene[data-active="true"] .chip-edge-light--device {
+  animation-name: chip-device-edge-travel;
+}
+
+.semiconductor-scene[data-active="true"] .chip-edge-light--interconnect {
+  animation-name: chip-interconnect-edge-travel;
+}
+
+.semiconductor-scene[data-active="true"] .chip-trace-glow,
+.semiconductor-scene[data-active="true"] .chip-trace-light {
+  animation: chip-circuit-intensity 4.6s both;
+}
+
+.semiconductor-scene[data-active="true"] .chip-trace-glow path,
+.semiconductor-scene[data-active="true"] .chip-trace-light path {
+  animation: chip-circuit-travel 4.6s both;
+}
+
+.semiconductor-scene[data-active="true"] .chip-node-light {
+  animation: chip-node-pulse 4.6s both;
+}
+
+.semiconductor-scene[data-active="true"] .chip-annotations {
+  animation: chip-label-reveal 4.6s both;
+}
+
+.semiconductor-caption {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 5%;
+  color: #526b80;
+  font-family: var(--font-mono, "SFMono-Regular", Consolas, monospace);
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: 0.055em;
+}
+
+.semiconductor-caption > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.chip-caption-dot {
+  width: 4px;
+  height: 4px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #548cb7;
+}
+
+.chip-replay {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 0 6px 8px;
+  border: 0;
+  background: transparent;
+  color: #3d607d;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.chip-replay svg {
+  width: 14px;
+  height: 14px;
+}
+
+.chip-replay:hover {
+  color: #126fba;
+}
+
+.chip-replay:focus-visible {
+  outline: 2px solid #2679b8;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+.chip-replay:disabled {
+  color: #687e90;
+  cursor: default;
+}
+
+.semiconductor-scene--compact .chip-layer,
+.semiconductor-scene--compact .chip-ground-shadow {
+  animation: none !important;
+  transform: none;
+}
+
+.semiconductor-scene--compact .chip-edge-light,
+.semiconductor-scene--compact .chip-trace-glow,
+.semiconductor-scene--compact .chip-trace-glow path,
+.semiconductor-scene--compact .chip-trace-light,
+.semiconductor-scene--compact .chip-trace-light path,
+.semiconductor-scene--compact .chip-node-light,
+.semiconductor-scene--compact .chip-assembly-beam {
+  animation: none !important;
+  opacity: 0;
+}
+
+@keyframes chip-substrate-settle {
+  0% {
+    transform: translateY(8px);
+  }
+  24%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes chip-device-assemble {
+  0%,
+  11% {
+    transform: translateY(-48px);
+  }
+  18% {
+    transform: translateY(-51px);
+  }
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes chip-interconnect-assemble {
+  0%,
+  24% {
+    transform: translateY(-102px);
+  }
+  33% {
+    transform: translateY(-105px);
+  }
+  65%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes chip-shadow-assemble {
+  0% {
+    transform: scale(1.08);
+    opacity: 0.58;
+  }
+  68%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes chip-assembly-beam {
+  0%,
+  10% {
+    opacity: 0;
+  }
+  28% {
+    opacity: 1;
+  }
+  64%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes chip-edge-travel {
+  0%,
+  7% {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.8;
+  }
+  37% {
+    stroke-dashoffset: 0;
+    opacity: 0.8;
+  }
+  49%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes chip-device-edge-travel {
+  0%,
+  26% {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+  34% {
+    opacity: 1;
+  }
+  61% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  72%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes chip-interconnect-edge-travel {
+  0%,
+  46% {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+  53% {
+    opacity: 1;
+  }
+  82% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  98%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes chip-circuit-travel {
+  0%,
+  53% {
+    stroke-dashoffset: 1;
+  }
+  84%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes chip-circuit-intensity {
+  0%,
+  52% {
+    opacity: 0;
+  }
+  67% {
+    opacity: 1;
+  }
+  79% {
+    opacity: 0.7;
+  }
+  87% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.18;
+  }
+}
+
+@keyframes chip-node-pulse {
+  0%,
+  66% {
+    opacity: 0;
+  }
+  74% {
+    opacity: 1;
+  }
+  81% {
+    opacity: 0.25;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes chip-label-reveal {
+  0%,
+  67% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  84%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .semiconductor-caption {
+    padding: 0 3%;
+    font-size: 8px;
+    letter-spacing: 0.02em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .semiconductor-scene *,
+  .semiconductor-scene *::before,
+  .semiconductor-scene *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .semiconductor-scene .chip-layer,
+  .semiconductor-scene .chip-ground-shadow,
+  .semiconductor-scene .chip-annotations {
+    transform: none;
+  }
+
+  .semiconductor-scene .chip-annotations {
+    opacity: 1;
+  }
+
+  .semiconductor-scene .chip-edge-light,
+  .semiconductor-scene .chip-trace-glow,
+  .semiconductor-scene .chip-trace-light,
+  .semiconductor-scene .chip-node-light,
+  .semiconductor-scene .chip-assembly-beam {
+    opacity: 0;
+  }
+
+  .chip-replay {
+    display: none;
+  }
+}

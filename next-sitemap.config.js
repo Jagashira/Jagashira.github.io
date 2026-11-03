@@ -2,4 +2,5 @@
 module.exports = {
   siteUrl: "https://jagashira.github.io",
   generateRobotsTxt: true,
+  outDir: "out",
 };

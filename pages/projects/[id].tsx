@@ -1,181 +1,110 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import Layout from "@components/ui/Layout";
-import Image from "next/image";
-import { Project, projects } from "@/data/projects/projects";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
-import { NextSeo } from "next-seo";
+import type { GetStaticPaths, GetStaticProps } from "next";
+import Link from "next/link";
+import { projects, type Project } from "@/data/projects/projects";
+import { projectCategories } from "@/data/portfolio";
+import { getProjectHtml } from "@/lib/projects";
+import { SiteShell } from "@/components/portfolio/SiteShell";
+import { Seo } from "@/components/portfolio/Seo";
+import { ArrowIcon } from "@/components/portfolio/Icons";
+import { ProjectVisual } from "@/components/portfolio/ProjectVisual";
 
-type ProjectData = Project & {
-  contentHtml: string;
+type Props = {
+  project: Project;
+  content: string;
+  nextProject: Pick<Project, "id" | "title">;
 };
-
-type ProjectDetailProps = {
-  projectData: ProjectData;
-};
-
-export default function ProjectDetail({ projectData }: ProjectDetailProps) {
-  if (!projectData) {
-    return (
-      <Layout>
-        <section className="py-20 text-center">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-            Project Not Found
-          </h1>
-        </section>
-      </Layout>
-    );
-  }
-
+export default function ProjectPage({ project, content, nextProject }: Props) {
+  const externalLinks = [
+    { href: project.repo, label: "GitHubでコードを見る" },
+    { href: project.demo, label: "デモを見る" },
+    { href: project.link, label: "公開ページを見る" },
+  ].filter((link) => link.href);
   return (
-    <Layout>
-      <NextSeo
-        title={`${projectData.title} | Jagashira's Portfolio`}
-        description={projectData.desc}
-        openGraph={{
-          title: `${projectData.title} | Jagashira's Portfolio`,
-          description: projectData.desc,
-          images: [
-            {
-              url: `https://jagashira.github.io/projects/${projectData.image}`,
-              width: 1200,
-              height: 720,
-              alt: projectData.title,
-            },
-          ],
-        }}
+    <>
+      <Seo
+        title={project.title}
+        description={project.desc}
+        path={`/projects/${project.id}/`}
       />
-      <article className="mx-auto mt-4 max-w-7xl px-6 py-12 sm:py-16">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
-          <div className="lg:sticky lg:top-24 self-start">
-            <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl dark:border-gray-800 dark:bg-gray-900">
-              <Image
-                src={projectData.image}
-                alt={projectData.title}
-                width={1200}
-                height={720}
-                className="h-auto w-full object-cover"
-                priority
-              />
-            </div>
+      <SiteShell>
+        <article className="container project-detail">
+          <header className="page-heading">
+            <Link className="text-link back-link" href="/projects/">
+              ← All projects
+            </Link>
+            <p className="eyebrow">
+              {projectCategories[project.id]} / PROJECT STORY
+            </p>
+            <h1>{project.title}</h1>
+            <p>{project.desc}</p>
+          </header>
+          <div className="detail-visual">
+            <ProjectVisual project={project} priority />
           </div>
-
-          <div className="space-y-8">
-            <header className="rounded-3xl border border-gray-200 bg-white/90 p-8 shadow-sm backdrop-blur dark:border-gray-800 dark:bg-gray-900/80">
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-blue-600 dark:text-blue-400">
-                Project Detail
-              </p>
-              <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-5xl">
-                {projectData.title}
-              </h1>
-              <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                {projectData.desc}
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {projectData.tech.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-700 ring-1 ring-inset ring-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:ring-gray-700"
-                  >
-                    {tag}
-                  </span>
+          <div className="project-story-grid">
+            <aside className="project-facts">
+              <p className="eyebrow">TOOLBOX</p>
+              <ul className="tech-tags">
+                {project.tech.map((tech) => (
+                  <li key={tech}>{tech}</li>
                 ))}
-              </div>
-            </header>
-
-            <section className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-800 dark:bg-gray-900">
-              <div
-                className="prose prose-lg max-w-none prose-headings:scroll-mt-24 prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-8 prose-strong:text-gray-900 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-li:text-gray-700 prose-li:marker:text-gray-400 prose-ul:pl-6 dark:prose-headings:text-white dark:prose-p:text-gray-300 dark:prose-strong:text-white dark:prose-a:text-blue-400 dark:prose-li:text-gray-300 dark:prose-li:marker:text-gray-500"
-                dangerouslySetInnerHTML={{ __html: projectData.contentHtml }}
-              />
-            </section>
-
-            {(projectData.demo || projectData.repo || projectData.link) && (
-              <section className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-800 dark:bg-gray-900">
-                <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
-                  関連リンク
-                </h2>
-                <div className="flex flex-wrap gap-3">
-                  {projectData.repo && (
+              </ul>
+              {externalLinks.length > 0 && (
+                <div className="project-external-links">
+                  {externalLinks.map((link) => (
                     <a
-                      href={projectData.repo}
+                      className="text-link"
+                      key={link.href}
+                      href={link.href}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-gray-700 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-200"
+                      rel="noreferrer"
                     >
-                      GitHubリポジトリ
+                      {link.label}
+                      <ArrowIcon diagonal />
                     </a>
-                  )}
-                  {projectData.link && (
-                    <a
-                      href={projectData.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center rounded-full border border-gray-300 px-5 py-2.5 text-sm font-semibold text-gray-800 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-100 dark:hover:bg-gray-800"
-                    >
-                      関連リンク
-                    </a>
-                  )}
-                  {projectData.demo && (
-                    <a
-                      href={projectData.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-5 py-2.5 text-sm font-semibold text-blue-700 hover:bg-blue-100 dark:border-blue-900 dark:bg-blue-950/40 dark:text-blue-300 dark:hover:bg-blue-950/60"
-                    >
-                      デモを見る
-                    </a>
-                  )}
+                  ))}
                 </div>
-              </section>
-            )}
+              )}
+              <Link className="text-link" href="/#contact">
+                このプロジェクトについて話す <ArrowIcon diagonal />
+              </Link>
+            </aside>
+            <div
+              className="reading-content"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
           </div>
-        </div>
-      </article>
-    </Layout>
+          <nav className="next-project" aria-label="次のプロジェクト">
+            <div>
+              <span className="eyebrow">KEEP EXPLORING</span>
+              <Link href={`/projects/${nextProject.id}/`}>
+                {nextProject.title}
+                <ArrowIcon diagonal />
+              </Link>
+            </div>
+            <Link className="text-link" href="/projects/">
+              一覧に戻る <ArrowIcon />
+            </Link>
+          </nav>
+        </article>
+      </SiteShell>
+    </>
   );
 }
-
-const projectsDirectory = path.join(process.cwd(), "data/projects");
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = projects.map((p) => ({
-    params: { id: p.id },
-  }));
-  return { paths, fallback: false };
-};
-export const getStaticProps: GetStaticProps<ProjectDetailProps> = async ({
-  params,
-}) => {
-  const id = params?.id as string;
-
-  // 1. `projects.ts` からメタデータを取得
-  const projectMetadata = projects.find((p) => p.id === id);
-
-  if (!projectMetadata) {
-    return { notFound: true };
-  }
-
-  const projectsDirectory = path.join(process.cwd(), "data/projects/docs");
-  const fullPath = path.join(projectsDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-
-  const { content } = matter(fileContents);
-  const processedContent = await remark().use(html).process(content);
-  const contentHtml = processedContent.toString();
-
-  const projectData: ProjectData = {
-    ...projectMetadata,
-    contentHtml,
-  };
-
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: projects.map((project) => ({ params: { id: project.id } })),
+  fallback: false,
+});
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const index = projects.findIndex((project) => project.id === params?.id);
+  if (index < 0) return { notFound: true };
+  const project = projects[index];
+  const next = projects[(index + 1) % projects.length];
   return {
     props: {
-      projectData,
+      project,
+      content: await getProjectHtml(project.id),
+      nextProject: { id: next.id, title: next.title },
     },
   };
 };

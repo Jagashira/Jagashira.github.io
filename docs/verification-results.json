@@ -1,0 +1,961 @@
+{
+  "checkedAt": "2026-09-14T01:09:57.125Z",
+  "base": "http://127.0.0.1:3001",
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/about/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/cooknote/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/anki-forge/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/clipbridge/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/gas-line/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/home-assistant/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/kakei-plus/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/minute-dock/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/oto-log/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/piano-club/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/ppl-syntax-highlighting/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/quick-anki/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/remotion-shorts/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/projects/ysp-201-serial/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/cooknote/notes/dashi/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/cooknote/notes/hygiene/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    },
+    {
+      "route": "/cooknote/notes/index/",
+      "status": 200,
+      "viewports": [
+        {
+          "viewport": 320,
+          "content": 320
+        },
+        {
+          "viewport": 390,
+          "content": 390
+        },
+        {
+          "viewport": 480,
+          "content": 480
+        },
+        {
+          "viewport": 600,
+          "content": 600
+        },
+        {
+          "viewport": 768,
+          "content": 768
+        },
+        {
+          "viewport": 1440,
+          "content": 1440
+        }
+      ]
+    }
+  ],
+  "interactions": [
+    "First visit opens the latte intro",
+    "Intro closes and saves its session state",
+    "Hero animation finishes without continuous motion",
+    "Replay starts the semiconductor assembly",
+    "Replay re-enables after completion",
+    "Repeat visit skips the intro",
+    "IoT & Hardware filter displays 3 projects",
+    "Software filter displays 7 projects",
+    "Automation filter displays 2 projects",
+    "All projects filter displays 12 projects",
+    "Category deep link works",
+    "Project cards open the correct detail",
+    "Mobile menu opens",
+    "Escape closes the menu and preserves toggle focus",
+    "Mobile navigation reaches Research and closes",
+    "Keyboard skip link is first in tab order",
+    "Skip link focuses main content",
+    "Email copy works",
+    "Reduced motion omits intro and replay",
+    "Reduced motion shows assembled layers without animation",
+    "Static content is readable without JavaScript",
+    "Intro skip button closes the modal",
+    "Escape skips the intro",
+    "Unknown routes return the custom 404",
+    "Static export includes robots.txt",
+    "Static export includes sitemap.xml",
+    "Static export includes sitemap-0.xml"
+  ],
+  "accessibility": [
+    {
+      "route": "/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/about/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/cooknote/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/anki-forge/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/clipbridge/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/gas-line/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/home-assistant/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/kakei-plus/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/minute-dock/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/oto-log/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/piano-club/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/ppl-syntax-highlighting/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/quick-anki/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/remotion-shorts/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/ysp-201-serial/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/cooknote/notes/dashi/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/cooknote/notes/hygiene/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/cooknote/notes/index/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/ (intro)",
+      "width": 1280,
+      "violations": []
+    }
+  ],
+  "internalLinks": [
+    {
+      "path": "/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/#projects",
+      "status": 200
+    },
+    {
+      "path": "/#research",
+      "status": 200
+    },
+    {
+      "path": "/#about",
+      "status": 200
+    },
+    {
+      "path": "/#skills",
+      "status": 200
+    },
+    {
+      "path": "/#contact",
+      "status": 200
+    },
+    {
+      "path": "/projects/?category=hardware",
+      "status": 200
+    },
+    {
+      "path": "/#making",
+      "status": 200
+    },
+    {
+      "path": "/projects/?category=software",
+      "status": 200
+    },
+    {
+      "path": "/projects/",
+      "status": 200
+    },
+    {
+      "path": "/projects/home-assistant/",
+      "status": 200
+    },
+    {
+      "path": "/projects/ysp-201-serial/",
+      "status": 200
+    },
+    {
+      "path": "/projects/clipbridge/",
+      "status": 200
+    },
+    {
+      "path": "/projects/minute-dock/",
+      "status": 200
+    },
+    {
+      "path": "/about/",
+      "status": 200
+    },
+    {
+      "path": "/projects/gas-line/",
+      "status": 200
+    },
+    {
+      "path": "/projects/oto-log/",
+      "status": 200
+    },
+    {
+      "path": "/projects/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/kakei-plus/",
+      "status": 200
+    },
+    {
+      "path": "/projects/anki-forge/",
+      "status": 200
+    },
+    {
+      "path": "/projects/quick-anki/",
+      "status": 200
+    },
+    {
+      "path": "/projects/piano-club/",
+      "status": 200
+    },
+    {
+      "path": "/projects/remotion-shorts/",
+      "status": 200
+    },
+    {
+      "path": "/projects/ppl-syntax-highlighting/",
+      "status": 200
+    },
+    {
+      "path": "/about/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/cooknote/",
+      "status": 200
+    },
+    {
+      "path": "/cooknote/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/cooknote/notes/index/",
+      "status": 200
+    },
+    {
+      "path": "/cooknote/notes/dashi/",
+      "status": 200
+    },
+    {
+      "path": "/cooknote/notes/hygiene/",
+      "status": 200
+    },
+    {
+      "path": "/projects/anki-forge/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/clipbridge/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/gas-line/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/home-assistant/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/kakei-plus/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/minute-dock/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/oto-log/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/piano-club/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/ppl-syntax-highlighting/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/quick-anki/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/remotion-shorts/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/projects/ysp-201-serial/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/cooknote/notes/dashi/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/cooknote/notes/hygiene/#main-content",
+      "status": 200
+    },
+    {
+      "path": "/cooknote/notes/index/#main-content",
+      "status": 200
+    }
+  ],
+  "externalLinks": [
+    {
+      "url": "https://github.com/Jagashira",
+      "status": "not checked"
+    },
+    {
+      "url": "https://github.com/Jagashira/clipbridge",
+      "status": "not checked"
+    },
+    {
+      "url": "https://github.com/Jagashira/home-dashboard.git",
+      "status": "not checked"
+    },
+    {
+      "url": "https://github.com/Jagashira/home-platform.git",
+      "status": "not checked"
+    },
+    {
+      "url": "https://github.com/Jagashira/home-internal-api.git",
+      "status": "not checked"
+    },
+    {
+      "url": "https://github.com/Jagashira/home-billing-api.git",
+      "status": "not checked"
+    },
+    {
+      "url": "https://tus-piano.vercel.app/",
+      "status": "not checked"
+    },
+    {
+      "url": "https://github.com/Jagashira/vscode-ppl",
+      "status": "not checked"
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=Jagashira.vscode-ppl",
+      "status": "not checked"
+    },
+    {
+      "url": "https://github.com/Jagashira/Quick-Anki",
+      "status": "not checked"
+    },
+    {
+      "url": "https://jagashira.github.io/video/video.mp4",
+      "status": "not checked"
+    },
+    {
+      "url": "https://jagashira.github.io/video/tiktok.mp4",
+      "status": "not checked"
+    },
+    {
+      "url": "https://github.com/Jagashira/Syringe-Pump-Pro",
+      "status": "not checked"
+    }
+  ],
+  "cancelledBackgroundChecks": [
+    {
+      "url": "http://127.0.0.1:3001/_next/data/r-LS5X_nMM-U4-H537gvh/projects/home-assistant.json?id=home-assistant",
+      "reason": "net::ERR_ABORTED",
+      "verifiedStatus": 200
+    }
+  ],
+  "errors": [],
+  "result": "passed"
+}
